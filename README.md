@@ -1,5 +1,6 @@
 # phase-1-project
-Weathermethis!
+WEATHERMETHIS!
+
 Project author:Angela Kanyi
 
 Description
