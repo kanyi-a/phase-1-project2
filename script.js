@@ -1,9 +1,32 @@
 //API KEY
 let weather = {
    "apiKey": "bc3117fec7aed263f6814ea628daff8d",
-   fetchWeather:function () {
-       fetch("https://api.openweathermap.org/data/2.5/weather?q=Nairobi,kenya&units=metrics&APPID=bc3117fec7aed263f6814ea628daff8d")
+   fetchWeather:function (city) {
+       fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
+       + city
+       + "&units=metric&APPID=" 
+       + this.apiKey
+       )
        .then((response) =>response.json())
-       .then((data) => console.log(data));
-   }
+       .then((data) => this.displayWeather(data));
+
+       //INTRODUCING THE DISPLAYWEATHER FUNCTION
+   },
+    displayWeather: function(data) {
+        const { name } = data;
+        const {icon, description} = data.weather[0];
+        const {temp, humidity } = data.main;
+        const {speed} = data.wind;
+        console.log( name, icon, description, temp, humidity, speed);
+        //ADDING AN EVENT
+        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/03d@2x " + icon + ".png"
+        
+        document.querySelector(".description").innerText = description;
+;
+        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector("wind").innerText = "Wind speed: " + speed + "km/h";
+
+    }
 }
