@@ -1,3 +1,24 @@
+//geolocation pop-up
+window.addEventListener("load", ()=> {
+   let long;
+   let lat;
+
+   if(navigator.geolocation){
+       navigator.geolocation.getCurrentPosition(position =>{
+           //console.log(position);
+           long = position.coords.longitude;
+           lat = position.coords.latitude;
+       })
+
+   }else{
+       h1.textContent = "hey please turn on geolocation "
+   }
+
+
+});
+
+
+
 //API KEY
 let weather = {
    "apiKey": "bc3117fec7aed263f6814ea628daff8d",
@@ -17,16 +38,33 @@ let weather = {
         const {icon, description} = data.weather[0];
         const {temp, humidity } = data.main;
         const {speed} = data.wind;
-        console.log( name, icon, description, temp, humidity, speed);
+       // console.log( name, icon, description, temp, humidity, speed);
         //ADDING AN EVENT
         document.querySelector(".city").innerText = "Weather in " + name;
-        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/03d@2x " + icon + ".png"
+        //document.querySelector(".icon").src = "http://openweathermap.org/img/w/" + icon + ".png";
+        
         
         document.querySelector(".description").innerText = description;
 ;
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-        document.querySelector("wind").innerText = "Wind speed: " + speed + "km/h";
+        document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
+        document.querySelector(".weather").classList.remove("loading");
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"
+
+    },
+    search: function (){
+       this.fetchWeather(document.querySelector(".search-bar").value);
+    }
+
+};
+document.querySelector(".search button").addEventListener("click", function () {
+weather.search();
+})
+document.querySelector(".search-bar").addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+        weather.search();
 
     }
-}
+});
+weather.fetchWeather("Nairobi");
