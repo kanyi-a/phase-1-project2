@@ -60,8 +60,10 @@ let weather = {
         document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
         document.querySelector(".weather").classList.remove("loading");
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
+        document.body.style.backgroundRepeat = "no-repeat";
         // set Icon
-  
+
+        setIcons(icon, document.querySelector('.icon'));
 
     },
     search: function (){
@@ -69,9 +71,11 @@ let weather = {
     }
    
 };
+//first event
 document.querySelector(".search button").addEventListener("click", function () {
 weather.search();
 })
+//second event
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {
     if (event.key == "Enter") {
         weather.search();
