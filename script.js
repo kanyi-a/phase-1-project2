@@ -1,4 +1,4 @@
-//geolocation pop-up
+//geolocation pop- up
 window.addEventListener("load", ()=> {
    let long;
    let lat;
@@ -6,8 +6,11 @@ window.addEventListener("load", ()=> {
    if(navigator.geolocation){
        navigator.geolocation.getCurrentPosition(position =>{
            //console.log(position);
+           
            long = position.coords.longitude;
            lat = position.coords.latitude;
+           
+            
        })
 
    }else{
@@ -28,8 +31,12 @@ let weather = {
        + "&units=metric&APPID=" 
        + this.apiKey
        )
-       .then((response) =>response.json())
-       .then((data) => this.displayWeather(data));
+       .then(resp =>{
+           if(!resp.ok) throw new Error (resp.statusText);
+           return resp.json();
+       })
+       .then((data) => this.displayWeather(data))
+       .catch(console.err)
 
        //INTRODUCING THE DISPLAYWEATHER FUNCTION
    },
@@ -38,6 +45,8 @@ let weather = {
         const {icon, description} = data.weather[0];
         const {temp, humidity } = data.main;
         const {speed} = data.wind;
+        
+        
        // console.log( name, icon, description, temp, humidity, speed);
         //ADDING AN EVENT
         document.querySelector(".city").innerText = "Weather in " + name;
@@ -50,13 +59,15 @@ let weather = {
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
         document.querySelector(".weather").classList.remove("loading");
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
+        // set Icon
+  
 
     },
     search: function (){
        this.fetchWeather(document.querySelector(".search-bar").value);
     }
-
+   
 };
 document.querySelector(".search button").addEventListener("click", function () {
 weather.search();
@@ -66,5 +77,12 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
         weather.search();
 
     }
+    function setIcons(icon, iconID){
+        const skycons = new Skycons({color: "white"});
+        const currentIcon = icon.toUpperCase();
+        skycons.play();
+  return skycons.set(iconID, skycons[currentIcon]);
+    }
+
 });
 weather.fetchWeather("Nairobi");
