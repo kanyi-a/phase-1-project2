@@ -30,15 +30,16 @@ let weather = {
        + "&units=metric&APPID=" 
        + this.apiKey
        )
-       .then(resp => {
-          resp.json();
+       .then(resp =>{
+           if(!resp.ok) throw new Error (resp.statusText)
+           return resp.json();
        })
        .then((data) => this.displayWeather(data))
-       .catch(console.err);
+       .catch(console.err)
 
        //INTRODUCING THE DISPLAYWEATHER FUNCTION
    },
-    displayWeather: function () {
+    displayWeather: function (data) {
         const { name } = data ;
         const { icon ,description} = data.weather[0];
         const { temp, humidity } = data.main;
@@ -63,7 +64,7 @@ let weather = {
         // set clock display
         setInterval(function(){
        const clock = document.querySelector(".display")
-       let time = new date();
+       let time = new Date();
        let sec = time.getSeconds();
        let min = time.getMinutes();
        let hr = time.getHours();
