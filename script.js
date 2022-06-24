@@ -112,7 +112,7 @@ let weather = {
        this.fetchWeather(document.querySelector(".search-bar").value);
     }
    
-};
+};""
 
 
 //first event
