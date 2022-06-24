@@ -6,7 +6,7 @@ window.addEventListener("load", ()=> {
    if(navigator.geolocation){
        navigator.geolocation.getCurrentPosition(position =>{
            //console.log(position);
-           
+           alert('Please turn your location on');
            long = position.coords.longitude;
            lat = position.coords.latitude;
            
@@ -14,12 +14,11 @@ window.addEventListener("load", ()=> {
        })
 
    }else{
-       h1.textContent = "hey please turn on geolocation "
+       alert ("hey please turn on geolocation ")
    }
-
+    
 
 });
-
 
 
 //API KEY
@@ -42,16 +41,17 @@ let weather = {
    },
     displayWeather: function(data) {
         const { name } = data;
-        const {icon, description} = data.weather[0];
+        const { icon ,description} = data.weather[0];
         const {temp, humidity } = data.main;
         const {speed} = data.wind;
+        
         
         
        // console.log( name, icon, description, temp, humidity, speed);
         //ADDING AN EVENT
         document.querySelector(".city").innerText = "Weather in " + name;
         //document.querySelector(".icon").src = "http://openweathermap.org/img/w/" + icon + ".png";
-        
+        document.querySelector(".icon").src ="http://openweathermap.org/img/wn/" + icon + "@2x.png";
         
         document.querySelector(".description").innerText = description;
 ;
@@ -61,9 +61,9 @@ let weather = {
         document.querySelector(".weather").classList.remove("loading");
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
         document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
         // set Icon
-
-        setIcons(icon, document.querySelector('.icon'));
+       
 
     },
     search: function (){
@@ -81,12 +81,8 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
         weather.search();
 
     }
-    function setIcons(icon, iconID){
-        const skycons = new Skycons({color: "white"});
-        const currentIcon = icon.toUpperCase();
-        skycons.play();
-  return skycons.set(iconID, skycons[currentIcon]);
-    }
+   
+
 
 });
 weather.fetchWeather("Nairobi");
