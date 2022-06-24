@@ -63,3 +63,9 @@ margin: 0%;
 h1.temp.span{
     margin: 10px;
 }
+.clock{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
