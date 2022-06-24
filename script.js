@@ -70,6 +70,10 @@ let weather = {
        let min = time.getMinutes();
        let hr = time.getHours();
        let day = 'AM ';
+       if(hr > 12){
+           day = 'PM';
+           hr = hr -12;
+       }
        clock.textContent = hr + ':' + min + ':' + sec;
         });
  
