@@ -68,6 +68,7 @@ let weather = {
        let sec = time.getSeconds();
        let min = time.getMinutes();
        let hr = time.getHours();
+       (hr + "hr" + min + "min" + sec + "sec");
 
 
 
