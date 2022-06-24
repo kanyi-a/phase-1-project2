@@ -19,17 +19,7 @@ window.addEventListener("load", ()=> {
     
 
 });
-function onSuccess(position){
-    const {latitude, longitude} = position.coords;
-    let api = 'https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={apiKey}';
-    //console.log(position);
 
-}
-function onError(error){
-    infoTxt.innerText = error.message;
-    infoTxt.classList.add("error");
-    //console.log(error);
-}
 
 //API KEY
 let weather = {
@@ -44,17 +34,15 @@ let weather = {
           resp.json();
        })
        .then((data) => this.displayWeather(data))
-       .catch(console.err)
+       .catch(console.err);
 
        //INTRODUCING THE DISPLAYWEATHER FUNCTION
    },
-    displayWeather: function(data) {
-        const { name } = data;
+    displayWeather: function () {
+        const { name } = data ;
         const { icon ,description} = data.weather[0];
-        const {temp, humidity } = data.main;
-        const {speed} = data.wind;
-        
-        
+        const { temp, humidity } = data.main;
+        const { speed} = data.wind;
         
        // console.log( name, icon, description, temp, humidity, speed);
         //ADDING AN EVENT
@@ -71,10 +59,11 @@ let weather = {
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
+    
         // set clock display
         setInterval(function(){
        const clock = document.querySelector(".display")
-       let time = new Date();
+       let time = new date();
        let sec = time.getSeconds();
        let min = time.getMinutes();
        let hr = time.getHours();
@@ -101,34 +90,31 @@ let weather = {
            hr = '0' + hr;
        }
 
-
        clock.textContent = hr + ':' + min + ':' + sec;
-        });
+        })
 
     },
+
 
     //search function
     search: function (){
        this.fetchWeather(document.querySelector(".search-bar").value);
-    }
+    },
    
-};""
+};
 
 
 //first event
 document.querySelector(".search button").addEventListener("click", function () {
 weather.search();
-})
+});
 //second event
-document.querySelector(".search-bar").addEventListener("keyup", function (event) {
-    if (event.key == "Enter" && search-bar.value != "")  {
-        fetchWeather(search-bar.value);
+document.querySelector(".search-bar")
+.addEventListener("keyup", function (event) {
+    if (event.key == "Enter"){
         weather.search()
 
     }
-}
+});
 
-
-
-);
 weather.fetchWeather("Nairobi");
