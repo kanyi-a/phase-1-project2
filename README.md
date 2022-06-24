@@ -11,4 +11,7 @@ The application runs on a single page.
 ##Technologies used
 HTML/CSS/JS frontend that accesses data from a public API. All interactions between the client and the API are handled asynchronously and their communication is through JSON.
 
+Below is a link to the actual project
+https://kanyi-a.github.io/phase-1-project2/
+
 
