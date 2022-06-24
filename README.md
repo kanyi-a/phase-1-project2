@@ -7,6 +7,8 @@ Angela Kanyi
 **screenshoot**
 ![This is an image](https://lh3.googleusercontent.com/7lys31hgASFrRjPcbIrjz-UzKN8rwCtFeursEjVcUNhGtVWFlKRKu5R6rqdoKIKPcTKPmw6m8M1TSOabRRwylJG0iTqPL30TvK2rw5bVDvdc7BnRQTDwni5xV-F1xMm4BI1QpM53gC9XiuRbYJO_TQmqK-2aAASR05ovyRtqHZZJwbgEHTaHgoGl26zi0qVROsWu4-CHeJ-4IYSR1oS9OS0zZab1d3i4o7ZfCFPPWmC0CsyST9N1LuFhresEl1KQuJo1uddlF0Bkcv12YpSoIuwcGZL-Y1acJINcFAKEO4kRAUPX7cz8sW7_tzu0iE6IQ1-P_yjK7Yc8ATL7C2kZRNyf7waCUKHZDBK2WIwehWKNH40i9HR-uXSpiOq6_0OwfLkJ6r-MG3mUR4Z-VZM-qWhwKMRrRxY_SRxIZMdf3dTvq9h3GOC1Bh_ruqL078eEb-lsj9NEGBrv8o_6sJQPPv785MhB_RV0v9tnHs9ppGKVrhmcm3AhVfz4zXSAT5GvDRRNWvv_OtFAghwdV99vGm7C62S3aMQ6MwGwCLITvX3BwCUst8QbHoEL0PuupS9pZZTruBftvRZSdxqtcqexV9GD0GhqCvh7EE_uBdHDkxvKwC_iEp2jPTooKQtTVGaO0k4aKmj5B59M7LN6DKBozqX19Ji00grIxW5Y6Msf4EE2NTnbqbcFFF-iF3v8iY2Xj_7XHCYDi_B6g4wQBt-FCcGKiqocPHCn4ufdirlDiaW0hzEv5a-ruPAC7Q=w1743-h980-no?authuser=0())
 
+![This is an image](https://photos.google.com/search/_tra_/photo/AF1QipM-lRuM7uYkxSueBacEEO0M8fAOq-gaop9PPcNi)
+
 **Description**
 This Application allows the user to verify the weather.They can input their location or turn on the location and it will automatically tell the weather.
 This app can also be used to tell the time
