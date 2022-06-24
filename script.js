@@ -63,13 +63,16 @@ let weather = {
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
         // set clock display
+        setInterval(function(){
        const clock = document.querySelector(".display")
        let time = new Date();
        let sec = time.getSeconds();
        let min = time.getMinutes();
        let hr = time.getHours();
-       (hr + "hr" + min + "min" + sec + "sec");
-
+       let day = 'AM ';
+       clock.textContent = hr + ':' + min + ':' + sec;
+        });
+ 
 
 
     },
