@@ -74,6 +74,14 @@ let weather = {
            day = 'PM';
            hr = hr -12;
        }
+       if(hr == 0){
+           hr = hr - 12;
+       }
+
+
+       if(sec < 10)[
+
+       ]
        clock.textContent = hr + ':' + min + ':' + sec;
         });
  
