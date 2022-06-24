@@ -62,8 +62,14 @@ let weather = {
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
-        // set Icon
-       
+        // set clock display
+       const clock = document.querySelector(".display")
+       let time = new Date();
+       let sec = time.getSeconds();
+       let min = time.getMinutes();
+       let hr = time.getHours();
+
+
 
     },
     search: function (){
