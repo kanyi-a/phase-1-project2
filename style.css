@@ -67,5 +67,10 @@ h1.temp.span{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+}
+.clock .display{
+    font-size: 30px;
+    color: rgb(178, 20, 199);
+    letter-spacing: 2px;
+    font-family:  'Orbitron', sans-serif;
 }
