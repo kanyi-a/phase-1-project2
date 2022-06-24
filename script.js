@@ -19,7 +19,17 @@ window.addEventListener("load", ()=> {
     
 
 });
+function onSuccess(position){
+    const {latitude, longitude} = position.coords;
+    let api = 'https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={apiKey}';
+    //console.log(position);
 
+}
+function onError(error){
+    infoTxt.innerText = error.message;
+    infoTxt.classList.add("error");
+    //console.log(error);
+}
 
 //API KEY
 let weather = {
@@ -30,9 +40,8 @@ let weather = {
        + "&units=metric&APPID=" 
        + this.apiKey
        )
-       .then(resp =>{
-           if(!resp.ok) throw new Error (resp.statusText);
-           return resp.json();
+       .then(resp => {
+          resp.json();
        })
        .then((data) => this.displayWeather(data))
        .catch(console.err)
@@ -104,18 +113,22 @@ let weather = {
     }
    
 };
+
+
 //first event
 document.querySelector(".search button").addEventListener("click", function () {
 weather.search();
 })
 //second event
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {
-    if (event.key == "Enter") {
-        weather.search();
+    if (event.key == "Enter" && search-bar.value != "")  {
+        fetchWeather(search-bar.value);
+        weather.search()
 
     }
-   
+}
 
 
-});
+
+);
 weather.fetchWeather("Nairobi");
