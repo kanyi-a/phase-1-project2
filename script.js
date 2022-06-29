@@ -24,10 +24,10 @@ window.addEventListener("load", ()=> {
 //API KEY
 let weather = {
    "apiKey": "bc3117fec7aed263f6814ea628daff8d",
-   fetchWeather:function (city) {
+   fetchWeather:function (city) { //instead of city include 
        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
        + city
-       + "&units=metric&APPID=" 
+       + "&units=metric&APPID=" // this will change data from kelvin to celsius automatically
        + this.apiKey
        )
        .then(resp =>{
